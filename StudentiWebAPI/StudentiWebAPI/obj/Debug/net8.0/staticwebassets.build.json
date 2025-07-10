@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "CXRD0RtO7ojWKTXyi2p5Q1VyJoiJHBCj4JwloesBhLQ=",
+  "Source": "StudentiWebAPI",
+  "BasePath": "_content/StudentiWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

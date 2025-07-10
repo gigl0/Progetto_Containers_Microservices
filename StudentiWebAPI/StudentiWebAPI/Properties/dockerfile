@@ -1,0 +1,22 @@
+# Base image for runtime
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+# SDK image to build the app
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+
+# Copia e ripristina il progetto
+COPY ["StudentiWebAPI.csproj", "./"]
+RUN dotnet restore "./StudentiWebAPI.csproj"
+
+# Copia il resto dei file e pubblica
+COPY . .
+RUN dotnet publish -c Release -o /app/publish
+
+# Immagine finale
+FROM base AS final
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "StudentiWebAPI.dll"]
